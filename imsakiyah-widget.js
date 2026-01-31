@@ -1,3 +1,92 @@
+<body>
+    <!-- Container utama widget -->
+    <div class="imsakiyah-widget" id="imsakiyahWidget">
+        <!-- ==================== HEADER SAMA PERSIS SEPERTI PDF + DEKORASI ==================== -->
+        <div class="widget-header">
+
+            <!-- Dekorasi bulan sabit di kiri -->
+            <div class="moon-decoration left">
+                <i class="fas fa-star-and-crescent"></i>
+            </div>
+            
+            <!-- Dekorasi bulan sabit di kanan -->
+            <div class="moon-decoration right">
+                <i class="fas fa-star-and-crescent"></i>
+            </div>
+            
+            <!-- Bintang-bintang -->
+            <div class="header-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            
+            <!-- Konten utama -->
+            <div class="header-content">
+                <div class="pdf-title">Jadwal Imsakiyah Ramadhan</div>
+                <div class="pdf-subtitle">Bulan Suci Penuh Berkah</div>
+                <div class="pdf-location" id="headerLocation">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="currentLocationText">Pilih lokasi untuk menampilkan jadwal</span>
+                </div>
+                <div class="pdf-year" id="yearDisplay">1447 H / 2026 M</div>
+            </div>
+        </div>
+        
+        <!-- Notifikasi deteksi lokasi - DISEMBUNYIKAN -->
+        <div class="detection-notice" id="detectionNotice">
+            <div class="detection-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="detection-text" id="detectionStatus">
+                    Mendeteksi lokasi Anda...
+                </div>
+            </div>
+            <div class="detection-buttons">
+                <button class="location-btn" id="detectLocation">
+                    <i class="fas fa-crosshairs"></i> Deteksi Otomatis
+                </button>
+            </div>
+        </div>
+        
+        <!-- Form Pemilihan Lokasi -->
+        <div class="location-form" id="locationForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="provinceSelect">Pilih Provinsi</label>
+                    <select class="form-select" id="provinceSelect">
+                        <option value="">Memuat provinsi...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="citySelect">Pilih Kabupaten/Kota</label>
+                    <select class="form-select" id="citySelect" disabled>
+                        <option value="">Pilih provinsi terlebih dahulu</option>
+                    </select>
+                </div>
+                <div class="download-btn-container">
+                    <label for="downloadPDF">Unduh Jadwal</label>
+                    <button class="btn-download" id="downloadPDF" disabled>
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Container untuk jadwal -->
+        <div id="scheduleContainer">
+            <div class="empty-state">
+                <i class="fas fa-calendar-alt" style="font-size: 2rem; margin-bottom: 10px; color: var(--js-border);"></i>
+                <p>Pilih lokasi untuk menampilkan jadwal imsakiyah Ramadhan</p>
+            </div>
+        </div>
+        
+        <!-- Footer sumber data -->
+        <div class="data-source">
+            Sumber: <a href="https://bimasislam.kemenag.go.id" target="_blank">bimasislam.kemenag.go.id</a> | <a href="https://www.wiftek.com" target="_blank">WIFTEK.COM</a>
+        </div>
+    </div>
+
+    <script>
         // API Endpoints untuk Imsakiyah
         const API_BASE_URL = "https://equran.id/api/v2/imsakiyah";
         
@@ -944,3 +1033,5 @@
                 detectLocation();
             }, 500);
         });
+    </script>
+</body>
